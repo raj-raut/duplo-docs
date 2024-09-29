@@ -91,7 +91,7 @@ Once the CloudFormation stack is deployed, the load balancer DNS needs to be ass
 Ensure the Duplo-master instance is operational.
 
 ### Steps:
-1. Open a browser and navigate to the DNS (e.g., `https://duplo.customer-dns.com`).
+1. Open a browser and navigate to the DNS (e.g., `https://duplo.prod.customer-dns.com`).
 2. Verify that Duplo-master is running.
 
 ---
