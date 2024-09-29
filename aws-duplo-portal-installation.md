@@ -7,12 +7,12 @@ In this guide, we’ll cover how to deploy the Duplo Portal on AWS using a step-
 ## 1. Create a Public Hosted Zone in Route 53
 The first step is to set up a public hosted zone for your domain in AWS Route 53.
 
-- **Example DNS**: `duplo.customer-dns.com`
+- **Example DNS**: `prod.customer-dns.com`
 - This will be used for certificate creation and CloudFormation stack configuration.
 
 ### Steps:
 1. Go to AWS Route 53.
-2. Create a public hosted zone for your domain (e.g., `duplo.customer-dns.com`).
+2. Create a public hosted zone for your domain (e.g., `prod.customer-dns.com`).
 
 ---
 
@@ -20,7 +20,7 @@ The first step is to set up a public hosted zone for your domain in AWS Route 53
 
 We need SSL certificates for secure communication. Two certificates are required: one for the portal and one for logging and monitoring.
 
-- **Certificate 1**: ECDSA P-384 for the portal domain (e.g., `duplo.customer-dns.com`).
+- **Certificate 1**: ECDSA P-384 for the portal domain (e.g., `*.prod.customer-dns.com`).
 - **Certificate 2**: RSA 2048 for logging and monitoring subdomains (use `*` as a wildcard to cover all subdomains).
 
 ### Steps:
@@ -45,7 +45,7 @@ We will deploy the Duplo Portal by creating a CloudFormation stack.
 2. **Specify Stack Parameters**:
    - **Stack Name**: `duplo-root-stack`
    - **Class B**: `220` (for the VPC CIDR, e.g., 10.220.0.0/16)
-   - **Setup URL**: e.g., `https://duplo.customer-dns.com`
+   - **Setup URL**: e.g., `https://duplo.prod.customer-dns.com`
    - **Master AMI ID**: Use the appropriate AMI-ID for your region from the list below:
      - ap-northeast-1: `ami-0a5a5654af962ef44`
      - ap-south-1: `ami-067e59fd8c1c19857`
@@ -58,7 +58,7 @@ We will deploy the Duplo Portal by creating a CloudFormation stack.
      - us-west-2: `ami-0d37a83cc0eb387a9`
 
 3. **Additional Parameters**:
-   - **DUPLODNSPRFX**: e.g., `duplo.customer-dns.com`
+   - **DUPLODNSPRFX**: e.g., `prod.customer-dns.com`
    - **AWS Extra Regions**: Add additional regions to manage with Duplo, separated by a semicolon.
    - **AWS Route 53 Domain ID**: Enter the Route 53 Hosted Zone ID.
    - **Bastion AMI ID**: `ami-0d4efc14256385b61` (Optional, if you enable Bastion).
