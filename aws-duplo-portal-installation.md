@@ -148,7 +148,7 @@ Set up the AWS CLI profile for Duplo.
 
 1. Start an **AWS SSM session** and port forward:
     ```bash
-    aws ssm start-session --target INSTANCE_ID --document-name AWS-StartPortForwardingSession --parameters portNumber="3389",localPortNumber="56789" --profile PROFILE_NAME
+    aws ssm start-session --target INSTANCE_ID --document-name AWS-StartPortForwardingSession --parameters "portNumber=3389,localPortNumber=56789" --region REGION_NAME --profile PROFILE_NAME
     ```
 
 2. Connect to the instance using RDP and install updates.
