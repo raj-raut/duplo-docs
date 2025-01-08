@@ -137,16 +137,8 @@ AWS_PROFILE=PROFILE_NAME ./config-customer-id.sh compare xxxxx
 ```
 Replace `xxxxx` with the actual customer ID (retrieve it from DevOps Manager)
 
-## 11. Update Duplo-Master to the Latest February Release
 
-### Steps:
-1. Navigate to `duplo-infra/automation`
-2. Run:
-```bash
-AWS_PROFILE=PROFILE_NAME VERSION=branch/release_feb_2024/latest UI_VERSION=branch/release_feb_2024/latest ./update-duplo.sh
-```
-
-## 12. Update Duplo-Master to the Latest July Release
+## 11. Update Duplo-Master to the Latest July Release
 
 ### Steps:
 1. Navigate to `duplo-infra/automation`
@@ -155,7 +147,7 @@ AWS_PROFILE=PROFILE_NAME VERSION=branch/release_feb_2024/latest UI_VERSION=branc
 AWS_PROFILE=PROFILE_NAME VERSION=branch/release_jul_2024/latest UI_VERSION=branch/release_jul_2024/latest ./update-duplo.sh
 ```
 
-## 13. Update Duplo-PortalSvcs Instance
+## 12. Update Duplo-PortalSvcs Instance
 
 ### Steps:
 1. Use AWS Session Manager to connect
@@ -170,7 +162,7 @@ service docker start
 reboot -f
 ```
 
-## 14. Disable Secure Time Seeding
+## 13. Disable Secure Time Seeding
 
 ### Steps:
 1. Navigate to `duplo-infra/automation`
@@ -179,7 +171,7 @@ reboot -f
 AWS_PROFILE=PROFILE_NAME ./disable-secure-time-seeding.sh
 ```
 
-## 15. Install OpenVPN Server
+## 14. Install OpenVPN Server
 
 ### Steps:
 1. Subscribe to the OpenVPN Access Server from the AWS Marketplace
@@ -205,13 +197,13 @@ sshd -t
 service sshd restart
 ```
 
-## 16. Add Certificates in Duplo Portal for Logging and Monitoring
+## 15. Add Certificates in Duplo Portal for Logging and Monitoring
 
 ### Steps:
 1. Go to Administrator -> Plan -> Default -> Certificates
 2. Add the ARN of the RSA 2048 certificate created earlier
 
-## 17. Enable Logging and Monitoring
+## 16. Enable Logging and Monitoring
 
 ### Steps:
 1. Navigate to Administrator -> Observability -> Settings
